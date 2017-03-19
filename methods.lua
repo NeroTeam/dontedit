@@ -4,13 +4,13 @@ local function sendRequest(url)
 local dat,code = HTTPS.request(url) 
  
 if not dat then 
-api.sendMessage(206637124, '#request_err.Url : '..url..'\nDesc : Not Desc\nCode : '..code) 
+api.sendMessage(admin, '#request_err.Url : '..url..'\nDesc : Not Desc\nCode : '..code) 
 return false, code  
 end 
 local tab = json:decode(dat) 
 --actually, this rarely happens 
 if not tab.ok then 
-api.sendMessage(206637124, '#request_err.Url : '..url..'\nDesc : \n'..vtext(tab)) 
+api.sendMessage(admin, '#request_err.Url : '..url..'\nDesc : \n'..vtext(tab)) 
 return false
 end 
 return tab 
